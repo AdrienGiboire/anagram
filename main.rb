@@ -30,7 +30,7 @@ end
 def execute source
   processed_words = process
   result = processed_words.values
-  puts result.inspect
+  #puts result.inspect
 end
 
 execute 'words.txt'
