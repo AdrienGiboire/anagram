@@ -16,10 +16,8 @@ end
 def process
   result = {}
 
-  file = File.new('words.txt')
-  file.advise(:sequential)
-  file.each_entry do |word|
-    word = word.chomp
+  file = File.read('words.txt')
+  file.split("\r\n").each do |word|
     cleaned_word = clean_word word
     sorted_letters = sort_letter_for cleaned_word
     result[sorted_letters] ||= []
