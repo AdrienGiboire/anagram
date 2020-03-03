@@ -1,10 +1,3 @@
-# Get content from any local file
-def get_content_from filename
-  file = File.new(filename)
-  file.advise(:sequential)
-  file.each { |line| line }
-end
-
 # Clean a word by replacing characters with a diacritic with their equivalent without one
 def clean_word word
   diacritics = {
@@ -16,12 +9,6 @@ def clean_word word
     ['ç'] => 'c',
   }
 
-  # diacritics.each do |diacritic, replacement|
-  #   diacritic.each do |s|
-  #     word = word.gsub(s, replacement)
-  #   end
-  # end
-
   word.
     gsub(/àâä/, 'a').
     gsub(/éèêë/, 'e').
@@ -32,10 +19,10 @@ def clean_word word
 end
 
 def sort_letter_for word
-  word.split('').sort.join('')
+  word.chars.sort.join
 end
 
-def process words
+def process
   result = {}
 
   file = File.new('words.txt')
@@ -52,10 +39,9 @@ def process words
 end
 
 def execute source
-  #words = get_content_from 'words.txt'
-  processed_words = process []
+  processed_words = process
   result = processed_words.values
-  #puts result.inspect
+  puts result.inspect
 end
 
 execute 'words.txt'
