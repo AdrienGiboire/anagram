@@ -21,7 +21,7 @@ def process
     cleaned_word = clean_word word
     sorted_letters = sort_letter_for cleaned_word
     result[sorted_letters] ||= []
-    result[sorted_letters].push(word) unless result[sorted_letters].include?(word)
+    result[sorted_letters].push(word)
   end
 
   result
