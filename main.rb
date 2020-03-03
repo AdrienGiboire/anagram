@@ -1,14 +1,5 @@
 # Clean a word by replacing characters with a diacritic with their equivalent without one
 def clean_word word
-  diacritics = {
-    ['à','â','ä'] => 'a',
-    ['é','è','ê','ë'] => 'e',
-    ['î','ï'] => 'i',
-    ['ô','ö'] => 'o',
-    ['û','ü'] => 'u',
-    ['ç'] => 'c',
-  }
-
   word.
     gsub(/àâä/, 'a').
     gsub(/éèêë/, 'e').
